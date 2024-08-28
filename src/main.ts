@@ -1,24 +1,47 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import data from './data.json';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const projects = data.projects;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+// console.log(projects);
+
+const projectList = document.getElementById('list-cards');
+
+if (projectList) {
+  projects.forEach(project => {
+
+    const cardItem = document.createElement('li');
+    cardItem.className = "card";
+
+    const title = document.createElement('h3');
+    title.textContent = project.title;
+
+    const textSection = document.createElement('article');
+
+    const githubLink = document.createElement('a');
+    githubLink.href = project.githubLink;
+    githubLink.text = "Link to Github";
+
+    const liveDemoLink = document.createElement('a');
+    liveDemoLink.href = project.liveDemoLink;
+    liveDemoLink.text = "Live Demo";
+
+    const jumpLine = document.createElement('br');
+
+    const description = document.createElement('p');
+    description.innerHTML = project.description;
+
+    const figure = document.createElement('figure');
+    const imgUrl = document.createElement('img');
+    imgUrl.src = project.imgUrl;
+    figure.appendChild(imgUrl)
+
+    projectList.appendChild(cardItem);
+    cardItem.appendChild(textSection);
+    cardItem.appendChild(figure);
+    textSection.appendChild(title);
+    textSection.appendChild(githubLink);
+    textSection.appendChild(jumpLine);
+    textSection.appendChild(liveDemoLink);
+    textSection.appendChild(description);
+  });
+}

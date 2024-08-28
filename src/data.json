@@ -1,0 +1,107 @@
+{
+  "name": "Fredrik Kristiansen",
+  "description": "This is my portofolio...",
+  "contact": {
+    "email": "123@gmail.com",
+    "phone": "+47 111 222 33",
+    "location": "Halden, Østfold",
+    "github": "git-username-link",
+    "Linkedin": "Linkedin/profile"  
+  },
+  "Interests": [
+    {
+      "name": "Fishing"
+    },
+    {
+      "name": "traveling"
+    }
+  ],
+  "skills": [
+    {
+      "name": "HTML",
+      "level": "erfaren"
+    },
+    {
+      "name": "CSS",
+      "level": "erfaren"
+    },
+    {
+      "name": "JavaScript",
+      "level": "middels"
+    },
+    {
+      "name": "React",
+      "level": "middels"
+    },
+    {
+      "name": "Node.js",
+      "level": "nybegynner"
+    },
+    {
+        "name": "TypeScript",
+        "level": "nybegynner"
+      }
+  ],
+  "projects": 
+    [
+        {
+        "id": "1",
+        "title": "test1",
+        "description": "Webapp",
+        "technologies": ["TypeScript", "JavaScript", "HTML", "CSS"],
+        "githubLink": "Link to github repo",
+        "liveDemoLink": "link",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/330px-Unofficial_JavaScript_logo_2.svg.png"
+      },
+      {
+        "id": "2",
+        "title": "Website created with Python and Flask",
+        "description": "A simple website with sanity database",
+        "technologies": ["Python", "Flask", "Sanity"],
+        "githubLink": "Link to github repo",
+        "liveDemoLink": "link",
+        "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg"
+      }
+      ,
+      {
+        "id": "3",
+        "title": "Website created with Python and Flask",
+        "description": "A simple website with sanity database",
+        "technologies": ["Python", "Flask", "Sanity"],
+        "githubLink": "Link to github repo",
+        "liveDemoLink": "link",
+        "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg"
+      }
+      ,
+      {
+        "id": "4",
+        "title": "Website created with Python and Flask",
+        "description": "A simple website with sanity database",
+        "technologies": ["Python", "Flask", "Sanity"],
+        "githubLink": "Link to github repo",
+        "liveDemoLink": "link",
+        "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg"
+      }
+      ,
+      {
+        "id": "5",
+        "title": "Website created with Python and Flask",
+        "description": "A simple website with sanity database",
+        "technologies": ["Python", "Flask", "Sanity"],
+        "githubLink": "Link to github repo",
+        "liveDemoLink": "link",
+        "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg"
+      },
+      {
+        "id": "6",
+        "title": "Website created with Python and Flask",
+        "description": "A simple website with sanity database",
+        "technologies": ["Python", "Flask", "Sanity"],
+        "githubLink": "Link to github repo",
+        "liveDemoLink": "link",
+        "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg"
+      }
+    ]
+  }
+  
+  
