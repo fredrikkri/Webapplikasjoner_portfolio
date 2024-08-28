@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+}
+
+header{
+    background-image: linear-gradient(to right, rgb(122, 238, 217), rgb(129, 249, 145) , rgb(169, 239, 89));
+    height: 50px;
+    align-content: center;
+    nav {
+        padding: 8px;
+    }   
+}
+main{
+    margin: 1.2rem;
+    #create-project{    
+        height: 300px;
+        form{
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%;
+            justify-content: space-around;
+            gap: 15px;
+            #create-project-left{
+                place-content: space-between;
+                display: flex;
+                flex-direction: column;
+                input{
+                    height: 30px;
+                }
+            }
+            #create-project-center{
+                place-content: space-between;
+                display: flex;
+                flex-direction: column;
+                input{
+                    height: 250px;
+                }
+
+            }
+            #create-project-right{
+                place-content: space-between;
+                display: grid;
+                input{
+                    height: 30px;
+                }
+            }
+        }
+    }
+    #my-projects{
+        margin-top: 6rem;
+        @media (max-width: 535px) {    
+            margin-top: 16rem;
+        }    
+        @media (max-width: 360px) {    
+            margin-top: 28rem;
+        }   
+        
+    }
+}
