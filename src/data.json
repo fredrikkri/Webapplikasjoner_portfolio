@@ -44,63 +44,7 @@
   ],
   "projects": 
     [
-        {
-        "id": "1",
-        "title": "test1",
-        "description": "Webapp",
-        "technologies": ["TypeScript", "JavaScript", "HTML", "CSS"],
-        "githubLink": "Link to github repo",
-        "liveDemoLink": "link",
-        "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/330px-Unofficial_JavaScript_logo_2.svg.png"
-      },
-      {
-        "id": "2",
-        "title": "Website created with Python and Flask",
-        "description": "A simple website with sanity database",
-        "technologies": ["Python", "Flask", "Sanity"],
-        "githubLink": "Link to github repo",
-        "liveDemoLink": "link",
-        "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg"
-      }
-      ,
-      {
-        "id": "3",
-        "title": "Website created with Python and Flask",
-        "description": "A simple website with sanity database",
-        "technologies": ["Python", "Flask", "Sanity"],
-        "githubLink": "Link to github repo",
-        "liveDemoLink": "link",
-        "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg"
-      }
-      ,
-      {
-        "id": "4",
-        "title": "Website created with Python and Flask",
-        "description": "A simple website with sanity database",
-        "technologies": ["Python", "Flask", "Sanity"],
-        "githubLink": "Link to github repo",
-        "liveDemoLink": "link",
-        "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg"
-      }
-      ,
-      {
-        "id": "5",
-        "title": "Website created with Python and Flask",
-        "description": "A simple website with sanity database",
-        "technologies": ["Python", "Flask", "Sanity"],
-        "githubLink": "Link to github repo",
-        "liveDemoLink": "link",
-        "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg"
-      },
-      {
-        "id": "6",
-        "title": "Website created with Python and Flask",
-        "description": "A simple website with sanity database",
-        "technologies": ["Python", "Flask", "Sanity"],
-        "githubLink": "Link to github repo",
-        "liveDemoLink": "link",
-        "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg"
-      }
+       
     ]
   }
   

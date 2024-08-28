@@ -1,0 +1,47 @@
+
+{
+    "technologies": [
+          {
+          "name": "HTML"
+          },
+          {
+            "name": "CSS"
+          },
+          {
+            "name": "JavaScript"
+          },
+          {
+            "name": "TypeScript"
+          },
+          {
+            "name": "Python"
+          } 
+          ,
+          {
+            "name": "Java"
+          } 
+          ,
+          {
+            "name": "Flutter"
+          } 
+          ,
+          {
+            "name": "Dart"
+          } 
+          ,
+          {
+            "name": "NextJS"
+          } 
+          ,
+          {
+            "name": "C#"
+          } 
+          ,
+          {
+            "name": "C++"
+          },
+          {
+            "name": "SQL"
+          } 
+    ]
+}

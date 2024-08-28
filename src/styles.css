@@ -14,7 +14,7 @@ main{
     margin: 1.2rem;
     #create-project{    
         height: 300px;
-        form{
+        #create-project-form{
             display: flex;
             flex-wrap: wrap;
             height: 100%;
@@ -28,7 +28,7 @@ main{
                     height: 30px;
                 }
             }
-            #create-project-center{
+            #create-project-right{
                 place-content: space-between;
                 display: flex;
                 flex-direction: column;
@@ -36,13 +36,6 @@ main{
                     height: 250px;
                 }
 
-            }
-            #create-project-right{
-                place-content: space-between;
-                display: grid;
-                input{
-                    height: 30px;
-                }
             }
             #submit-button{
                 height: 35px;
@@ -68,9 +61,8 @@ main{
             
         .card{
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12), 
-              0 1px 3px rgba(0, 0, 0, 0.10);
-            transition: box-shadow 0.3s ease-in-out;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.12), 
+              0 1px 5px rgba(0, 0, 0, 0.10);
             margin: 8px;
             padding: 8px;    
             height: 250px;
