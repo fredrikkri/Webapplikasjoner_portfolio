@@ -93,9 +93,9 @@ form.addEventListener("submit", async (event: SubmitEvent) => {event.preventDefa
     });
 
     if (response.status === 201) {
-      console.log("Vane lagret på serveren");
+      console.log("Prosjekt lagret på serveren");
     } else {
-      console.error("Feil ved lagring av vane på serveren");
+      console.error("Feil ved lagring av prosjekt på serveren");
     }
   } catch (error) {
     console.error("Feil ved sending av data til serveren:", error);
