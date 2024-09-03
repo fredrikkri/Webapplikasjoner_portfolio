@@ -1,7 +1,6 @@
 import { Project } from './types';
 
 const projects: Project[] = [];
-// console.log(projects);
 
 
 function displayProjects() {
@@ -78,7 +77,6 @@ form.addEventListener("submit", async (event: SubmitEvent) => {event.preventDefa
       id: crypto.randomUUID(),
       createdAt: new Date()
     }
-    console.log(jsonData);
 
     projects.push(jsonData);
     displayProjects();

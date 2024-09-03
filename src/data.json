@@ -44,7 +44,15 @@
   ],
   "projects": 
     [
-       
+      {
+      "id": "938402934c023jfdweoi",
+      "title": "Python project",
+      "createdAt": "02.03.1990",
+      "description": "this is a great project",
+      "githubLink": "github user",
+      "liveDemoLink": "livedemo link",
+      "imgUrl": "imgurl link"
+      }
     ]
   }
   
