@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/styles.css">
+    <title>Portfolio</title>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            Portfolio
+        </nav>
+    </header>
+
+    <main>
+        <h1>Portfolio</h1>
+        <section id="create-project">
+            <h2>Create project</h2>
+
+            <form id="create-project-form">
+                <section id="create-project-left">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="label" placeholder="Project-title" required>
+
+                    <label for="githubLink">Github-link</label>
+                    <input type="text" id="githubLink" name="label" placeholder="URL" required>
+
+
+                    <label for="liveDemo">Live demo</label>
+                    <input type="text" id="liveDemo" name="label" placeholder="URL">
+
+                    <label for="imgUrl">Image</label>
+                    <input type="text" id="imgUrl" name="label" placeholder="ImageURL">
+                </section>
+
+                <section id="create-project-right">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="label" placeholder="Descriptive text..." required>
+                </section>
+
+                <input id="submit-button" type="submit">
+            </form>
+
+        </section>
+
+
+
+        <section id="my-projects">
+            <h2>My projects</h2>
+            <ul id="list-cards"></ul>
+        </section>
+    </main>
+    <footer></footer>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
