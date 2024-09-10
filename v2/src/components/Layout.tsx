@@ -1,4 +1,5 @@
 import Footer from "./Footer";
+import Header from "./Header";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -7,8 +8,9 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
+      <Header/>
       <main>{children}</main>
-      <Footer />
+      <Footer/>
     </>
   );
 }
