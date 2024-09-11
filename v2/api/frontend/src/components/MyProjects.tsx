@@ -22,6 +22,7 @@ export default function MyProjects() {
             "createdAt": new Date(),
           }
     ];
+    
 
     return (
         <section id="my-projects">
