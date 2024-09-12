@@ -1,12 +1,6 @@
-export type ProjectProps = {
-    projectTitle: string
-    description: string
-    githubLink: string
-    liveDemoLink: string
-    imgUrl: string
-}
+import { Project } from "../types/Project";
 
-export default function Project({projectTitle, description, githubLink, liveDemoLink, imgUrl}: ProjectProps) {
+export default function ProjectCard({projectTitle, description, githubLink, liveDemoLink, imgUrl}: Project) {
     return (
         <li className="card">
             <article>
