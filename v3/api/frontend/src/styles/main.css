@@ -1,9 +1,15 @@
+:root{
+    --gradient-color-1: rgb(122, 238, 217);
+    --gradient-color-2: rgb(129, 249, 145);
+    --gradient-color-3: rgb(169, 239, 89);
+}
+
 body {
     margin: 0;
 }
 
 header{
-    background-image: linear-gradient(to right, rgb(122, 238, 217), rgb(129, 249, 145) , rgb(169, 239, 89));
+    background-image: linear-gradient(to right, var(--gradient-color-1), var(--gradient-color-2) , var(--gradient-color-3));
     height: 50px;
     align-content: center;
     nav {
@@ -68,9 +74,14 @@ main{
             height: 250px;
             width: 500px;
             display: flex;
+            &:hover {
+                background-color: var(--gradient-color-2);
+                cursor: pointer;
+              }
             article{
                 width: 50%;
             }
+            
             figure{
                 img{
                     width: 125px;

@@ -1,2 +1,6 @@
 1.3 Vurder komponent komposisjonen
 
+Jeg føler jeg har delt opp allikasjonen i mange components. 
+Jeg vet ikke helt hvordan jeg skal dele opp i flere komponenter nå, da føler jeg det vil bli rotete.
+
+Eneste jeg kunne gjøre er å dele opp et project card i flere deler, men det vill heller kanskje bydd på unødvendig kompleksitet.
