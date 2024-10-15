@@ -1,7 +1,8 @@
 :root{
     --gradient-color-1: rgb(122, 238, 217);
     --gradient-color-2: rgb(129, 249, 145);
-    --gradient-color-3: rgb(169, 239, 89);
+    --gradient-color-3: rgb(208, 221, 193);
+    --card-hover-color: rgb(244, 255, 232);
 }
 
 body {
@@ -74,9 +75,11 @@ main{
             height: 250px;
             width: 500px;
             display: flex;
+            transition: background-color 0.3s ease, transform 0.4s ease;
             &:hover {
-                background-color: var(--gradient-color-2);
+                background-color: var(--card-hover-color);
                 cursor: pointer;
+                transform: scale(1.01); 
               }
             article{
                 width: 50%;
