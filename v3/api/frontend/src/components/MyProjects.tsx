@@ -1,7 +1,6 @@
 import ProjectCard from "./ProjectCard";
 import useProjects from "../hooks/useProjects";
 
-
 export default function MyProjects() {
     const { projectData } = useProjects();
 
