@@ -1,7 +1,7 @@
 import { Project } from "../types/Project";
 import { format } from "date-fns"
 
-export default function ProjectCard({projectTitle, description, githubLink, liveDemoLink, imgUrl, createdAt}: Project) {
+export default function ProjectCard({projectTitle, description, githubLink, liveDemoLink, imgUrl, createdAt, status}: Project) {
     return (
         <li className="card">
             <article>
@@ -11,6 +11,7 @@ export default function ProjectCard({projectTitle, description, githubLink, live
                 <br />
                 <a href={liveDemoLink}>Live Demo</a>
                 <p>{description}</p>
+                <p>Project status: {status}</p>
             </article>
             <figure>
                 <img src={imgUrl} alt="ImageURL" />

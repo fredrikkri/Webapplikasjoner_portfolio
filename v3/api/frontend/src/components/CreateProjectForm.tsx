@@ -4,12 +4,24 @@ import useProjects from "../hooks/useProjects"
 export default function CreateProjectForm() {
   const useProjectsHook = useProjects().projectData;
 
+  const [chosenStatus, setchosenStatus] = useState<string>("No status");
+
+  const handlechosenStatus = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedTarget = event.target.value;
+    setchosenStatus(event.target.value);
+    setFormData((prevData) => ({
+      ...prevData,
+      status: selectedTarget,
+    }));
+  };
+
     const [formData, setFormData] = useState({
       projectTitle: "",
       githubLink: "",
       description: "",
       liveDemoLink: "",
       imgUrl: "",
+      status: chosenStatus
     });
 
     // Handle sumbit metode
@@ -24,6 +36,7 @@ export default function CreateProjectForm() {
         liveDemoLink: formData.liveDemoLink,
         imgUrl: formData.imgUrl,
         createdAt: new Date(), 
+        status: formData.status
       };
 
       try {
@@ -43,7 +56,8 @@ export default function CreateProjectForm() {
             description: "",
             githubLink: "",
             liveDemoLink: "",
-            imgUrl: ""
+            imgUrl: "",
+            status: ""
           });
           useProjectsHook
           
@@ -67,6 +81,8 @@ export default function CreateProjectForm() {
     // Return of formfield
     return (
         <form id="create-project-form" onSubmit={handleSubmit}>
+          
+          {/* Left side */}
             <section id="create-project-left">
                 <label htmlFor="title">Title</label>
                 <input type="text" id="projectTitle" name="label" placeholder="projectTitle" onChange={handleChange} required/>
@@ -81,14 +97,33 @@ export default function CreateProjectForm() {
                 <input type="text" id="imgUrl" name="label" placeholder="imgUrl" onChange={handleChange}/>
             </section>
 
+            {/* Right side */}
             <section id="create-project-right">
                 <label htmlFor="description">Description</label>
-                <input type="text" id="description" name="label" placeholder="Descriptive text..." onChange={handleChange} required/>
-            </section>
+                <input type="text" id="description" name="label" placeholder="Tell us about your project..." onChange={handleChange} required/>
 
-            <input id="submit-button" type="submit"/>
+
+            <section id="chose-status-section">
+                <p>Set Status</p>
+                <span>
+                <label>New
+                  <input type="radio" name="status" value="New" checked={chosenStatus === "New"} onChange={handlechosenStatus} />
+                </label>
+
+                <label>In Progress
+                  <input type="radio" name="status" value="In Progress" checked={chosenStatus === "In Progress"} onChange={handlechosenStatus} />
+                </label>
+
+                <label>Finished
+                  <input type="radio" name="status" value="Finished" checked={chosenStatus === "Finished"} onChange={handlechosenStatus} />
+                </label>
+                </span>
+            </section>
+            
+          
+              </section>
+
+              <input id="submit-button" type="submit"/>
         </form>
     );
 }
-
-

@@ -40,9 +40,27 @@ main{
                 display: flex;
                 flex-direction: column;
                 input{
-                    height: 250px;
+                    height: 150px;
                 }
-
+            }
+            #chose-status-section{
+                max-height: 100px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                span{
+                    display: flex;
+                    label{
+                        display: flex;
+                        align-items: center;
+                        padding: 8px;
+                        cursor: pointer;
+                        input{
+                            margin-right: 10px;
+                            height: 10px;
+                        }
+                    }
+                }
             }
             #submit-button{
                 height: 35px;
@@ -52,12 +70,11 @@ main{
     }
     #my-projects{
         margin-top: 6rem;
-        
-        @media (max-width: 535px) {    
-            margin-top: 16rem;
+        @media (max-width: 521px) {    
+            margin-top: 20rem;
         }    
-        @media (max-width: 360px) {    
-            margin-top: 28rem;
+        @media (max-width: 425px) {    
+            margin-top: 23rem;
         }   
         #list-cards{
             display: flex;

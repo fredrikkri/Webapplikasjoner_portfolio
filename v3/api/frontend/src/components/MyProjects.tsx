@@ -6,6 +6,7 @@ export default function MyProjects() {
 
     return (
         <section id="my-projects">
+            <hr />
         <h2>My projects</h2>
         <ul id="list-cards">
         {projectData.map((project, index) => (
@@ -17,6 +18,7 @@ export default function MyProjects() {
             liveDemoLink={project.liveDemoLink}
             imgUrl={project.imgUrl}
             createdAt={project.createdAt}
+            status={project.status}
             />
         ))}
         </ul>

@@ -7,7 +7,8 @@ export const ProjectSchema = z.object({
     githubLink: z.string(),
     liveDemoLink: z.string(),
     imgUrl: z.string(),
-    createdAt: z.coerce.date()
+    createdAt: z.coerce.date(),
+    status: z.string()
 })
 
 export const ProjectCreateSchema = ProjectSchema.omit({ id: true });
