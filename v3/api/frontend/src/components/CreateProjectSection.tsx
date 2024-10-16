@@ -1,11 +1,11 @@
 import CreateProjectForm from "./CreateProjectForm";
 
-export default function CreateProjectSection({loadProjects }: { loadProjects: () => void}) {
+export default function CreateProjectSection() {
     return (
     
         <section id="create-project">
             <h2>Create project</h2>
-            <CreateProjectForm loadProjects={loadProjects}/>
+            <CreateProjectForm/>
         </section>
     );
   }

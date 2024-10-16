@@ -1,25 +1,9 @@
-import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
-import { Project } from "../types/Project";
+import useProjects from "../hooks/useProjects";
 
 
 export default function MyProjects() {
-  const [projectData, setProjectData] = useState<Project[]>([]);
-
-  const loadProjects = () => {
-    fetch("http://localhost:3999")
-      .then((response) => response.json())
-      .then((data: Project[]) => {
-        setProjectData(data);
-      })
-      .catch((error: Error) => {
-        console.error("Feil ved henting av data fra serveren:", error);
-      });
-  };
-
-  useEffect(() => {
-    loadProjects();
-  }, [projectData]);
+    const { projectData } = useProjects();
 
     return (
         <section id="my-projects">

@@ -2,7 +2,7 @@ import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { serveStatic } from "@hono/node-server/serve-static";
-import { Project } from "../../frontend/src/types/Project"
+import { Project, ProjectSchema } from "../../frontend/src/types/Project"
 
 const app = new Hono();
 
@@ -32,12 +32,13 @@ const projectsData: Project[] = [
 
 app.post("/add", async (c) => {
   const newProject = await c.req.json();
-  projectsData.push({ id: crypto.randomUUID(), createdAt: new Date(), ...newProject });
+  const parseData = ProjectSchema.parse(newProject)
+  projectsData.push(parseData);
   return c.json(projectsData, { status: 201 });
 });
 
-app.get("/", async (c) => {
-  return c.json<Project[]>(projectsData);
+app.get("/projects", async (c) => {
+  return c.json(projectsData);
 });
 
 const port = 3999;

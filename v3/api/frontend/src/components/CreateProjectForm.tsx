@@ -1,22 +1,28 @@
 import { useState } from "react";
+import useProjects from "../hooks/useProjects"
 
-export default function CreateProjectForm({loadProjects }: { loadProjects: () => void}) {
+export default function CreateProjectForm() {
 
     const [formData, setFormData] = useState({
-      name: "",
-      repoUrl: "",
+      projectTitle: "",
+      githubLink: "",
       description: "",
-      imageUrl: "",
+      liveDemoLink: "",
+      imgUrl: "",
     });
 
+    // Handle sumbit metode
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
     const newProject = {
-        name: formData.name,
-        repoUrl: formData.repoUrl,
+        id: crypto.randomUUID(), 
+        projectTitle: formData.projectTitle,
         description: formData.description,
-        image: formData.imageUrl,
+        githubLink: formData.githubLink,
+        liveDemoLink: formData.liveDemoLink,
+        imgUrl: formData.imgUrl,
+        createdAt: new Date(), 
       };
 
       try {
@@ -32,12 +38,14 @@ export default function CreateProjectForm({loadProjects }: { loadProjects: () =>
           const data = await response.json();
           console.log("Project added:", data);
           setFormData({
-            name: "",
-            repoUrl: "",
+            projectTitle: "",
             description: "",
-            imageUrl: "",
+            githubLink: "",
+            liveDemoLink: "",
+            imgUrl: "",
           });
-          loadProjects();
+          useProjects().projectData;
+          
         } else {
           console.error("err:", response.statusText);
         }
@@ -46,6 +54,7 @@ export default function CreateProjectForm({loadProjects }: { loadProjects: () =>
       }
     };
 
+    // Handle change metode
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = event.target;
         setFormData((prevFormData) => ({
@@ -54,20 +63,21 @@ export default function CreateProjectForm({loadProjects }: { loadProjects: () =>
         }));
       };
 
+    // Return of formfield
     return (
         <form id="create-project-form" onSubmit={handleSubmit}>
             <section id="create-project-left">
                 <label htmlFor="title">Title</label>
-                <input type="text" id="title" name="label" placeholder="Project-title" onChange={handleChange} required/>
+                <input type="text" id="projectTitle" name="label" placeholder="projectTitle" onChange={handleChange} required/>
                 <label htmlFor="githubLink">Github-link</label>
                 <input type="text" id="githubLink" name="label" placeholder="URL" onChange={handleChange} required/>
 
 
-                <label htmlFor="liveDemo">Live demo</label>
-                <input type="text" id="liveDemo" name="label" placeholder="URL" onChange={handleChange}/>
+                <label htmlFor="liveDemoLink">Live demo</label>
+                <input type="text" id="liveDemoLink" name="label" placeholder="URL" onChange={handleChange}/>
 
                 <label htmlFor="imgUrl">Image</label>
-                <input type="text" id="imgUrl" name="label" placeholder="ImageURL" onChange={handleChange}/>
+                <input type="text" id="imgUrl" name="label" placeholder="imgUrl" onChange={handleChange}/>
             </section>
 
             <section id="create-project-right">
