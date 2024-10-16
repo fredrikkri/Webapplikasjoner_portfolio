@@ -17,7 +17,7 @@ const projectsData: Project[] = [
         "githubLink": "Link to github repo",
         "liveDemoLink": "link",
         "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/330px-Unofficial_JavaScript_logo_2.svg.png",
-        "createdAt": new Date(),
+        "createdAt": new Date(2024,8,12),
       },
       {
         "id": crypto.randomUUID(),
@@ -26,7 +26,7 @@ const projectsData: Project[] = [
         "githubLink": "Link to github repo",
         "liveDemoLink": "link",
         "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg",
-        "createdAt": new Date(), 
+        "createdAt": new Date(2024,6,2), 
       }
 ];
 
@@ -38,7 +38,7 @@ app.post("/add", async (c) => {
 });
 
 app.get("/projects", async (c) => {
-  return c.json(projectsData);
+  return c.json(<Project[]>projectsData);
 });
 
 const port = 3999;

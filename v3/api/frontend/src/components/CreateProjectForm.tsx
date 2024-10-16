@@ -2,6 +2,7 @@ import { useState } from "react";
 import useProjects from "../hooks/useProjects"
 
 export default function CreateProjectForm() {
+  const useProjectsHook = useProjects().projectData;
 
     const [formData, setFormData] = useState({
       projectTitle: "",
@@ -42,9 +43,9 @@ export default function CreateProjectForm() {
             description: "",
             githubLink: "",
             liveDemoLink: "",
-            imgUrl: "",
+            imgUrl: ""
           });
-          useProjects().projectData;
+          useProjectsHook
           
         } else {
           console.error("err:", response.statusText);
