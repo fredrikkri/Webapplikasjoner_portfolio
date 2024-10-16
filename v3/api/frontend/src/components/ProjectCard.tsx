@@ -1,4 +1,4 @@
-import { Project } from "../types/Project";
+import { Project } from "../features/types/Project";
 import { format } from "date-fns"
 
 export default function ProjectCard({projectTitle, description, githubLink, liveDemoLink, imgUrl, createdAt, status}: Project) {

@@ -21,7 +21,8 @@ export default function CreateProjectForm() {
       description: "",
       liveDemoLink: "",
       imgUrl: "",
-      status: chosenStatus
+      status: chosenStatus,
+      userId: ""
     });
 
     // Handle sumbit metode
@@ -57,7 +58,8 @@ export default function CreateProjectForm() {
             githubLink: "",
             liveDemoLink: "",
             imgUrl: "",
-            status: ""
+            status: "",
+            userId: ""
           });
           useProjectsHook
           

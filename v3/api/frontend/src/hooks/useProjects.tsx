@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { type Project } from "../types/Project";
+import { type Project } from "../features/types/Project";
 import { ENDPOINTS } from '../config';
 
 export function useProjects() {

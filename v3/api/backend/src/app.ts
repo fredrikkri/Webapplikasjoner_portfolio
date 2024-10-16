@@ -2,35 +2,18 @@ import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { serveStatic } from "@hono/node-server/serve-static";
-import { Project, ProjectSchema } from "../../frontend/src/types/Project"
+import { Project, ProjectSchema } from "../../frontend/src/features/types/Project"
+import { myProjects } from "../../frontend/src/data/myProjects"
 
 const app = new Hono();
 
-app.use("/*", cors());
+app.use("/*", cors({
+  origin: "http://localhost:5173",
+  credentials: true,
+}));
 app.use("/*", serveStatic({ root: "./" }));
 
-const projectsData: Project[] = [
-    {
-        "id": crypto.randomUUID(),
-        "projectTitle": "test2",
-        "description": "Webapp",
-        "githubLink": "Link to github repo",
-        "liveDemoLink": "link",
-        "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/330px-Unofficial_JavaScript_logo_2.svg.png",
-        "createdAt": new Date(2024,8,12),
-        "status": "New"
-      },
-      {
-        "id": crypto.randomUUID(),
-        "projectTitle": "Website created with Python and Flask",
-        "description": "A simple website with sanity database",
-        "githubLink": "Link to github repo",
-        "liveDemoLink": "link",
-        "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg",
-        "createdAt": new Date(2024,6,2), 
-        "status": "In Progress"
-      }
-];
+const projectsData: Project[] = myProjects
 
 app.post("/add", async (c) => {
   const newProject = await c.req.json();
