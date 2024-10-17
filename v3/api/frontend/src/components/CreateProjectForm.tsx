@@ -23,6 +23,7 @@ export default function CreateProjectForm() {
 
     const newProject = {
         id: crypto.randomUUID(), 
+        userId: "3",
         projectTitle: formData.projectTitle,
         description: formData.description,
         githubLink: formData.githubLink,

@@ -4,7 +4,7 @@ import { cors } from "hono/cors";
 import { serveStatic } from "@hono/node-server/serve-static";
 import { Project, ProjectSchema } from "../../frontend/src/features/types/types"
 import { myProjects } from "../../frontend/src/data/myProjects"
-import { isNameValid } from "./lib/validator";
+// import { isNameValid } from "./lib/validator";
 import { getUser } from "../../frontend/src/features/utils/auth"
 
 const app = new Hono();
@@ -61,10 +61,6 @@ app.delete("/projects/:id", async (c) => {
 
 app.patch("/projects/:id", async (c) => {
   const id = c.req.param("id");
-  const {projectTitle} = await c.req.json();
-  if (!isNameValid(projectTitle)) {
-    return c.json({error: "Invalid name"}, {status: 400})
-  }
   const projects = projectsData.map((thisProject) => thisProject.id === id ? {...projectsData, name} : thisProject);
     return c.json(projects, {status: 200});
 });
