@@ -7,24 +7,6 @@ export default function CreateProjectForm() {
   const [chosenStatus, setchosenStatus] = useState<string>("No status");
   const [isPublicStatus, setIsPublicStatus] = useState<string>("true");
 
-  const handleIsPublicStatus = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedTargetIsPublic = event.target.value;
-    setIsPublicStatus(event.target.value);
-    setFormData((prevData) => ({
-      ...prevData,
-      status: selectedTargetIsPublic,
-    }));
-  };
-
-  const handlechosenStatus = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedTarget = event.target.value;
-    setchosenStatus(event.target.value);
-    setFormData((prevData) => ({
-      ...prevData,
-      status: selectedTarget,
-    }));
-  };
-
     const [formData, setFormData] = useState({
       projectTitle: "",
       githubLink: "",
@@ -66,14 +48,14 @@ export default function CreateProjectForm() {
           const data = await response.json();
           console.log("Project added:", data);
           setFormData({
-            projectTitle: "",
-            description: "",
-            githubLink: "",
-            liveDemoLink: "",
-            imgUrl: "",
-            status: "",
-            userId: "",
-            isPublic: ""
+            projectTitle: '',
+            description: '',
+            githubLink: '',
+            liveDemoLink: '',
+            imgUrl: '',
+            status: '',
+            userId: '',
+            isPublic: ''
           });
           useProjectsHook
           
@@ -91,6 +73,24 @@ export default function CreateProjectForm() {
         setFormData((prevFormData) => ({
           ...prevFormData,
           [id]: value,
+        }));
+      };
+
+      const handleIsPublic = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const selectedTargetIsPublic = event.target.value;
+        setIsPublicStatus(event.target.value);
+        setFormData((prevData) => ({
+          ...prevData,
+          isPublic: selectedTargetIsPublic,
+        }));
+      };
+    
+      const handlechosenStatus = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const selectedTarget = event.target.value;
+        setchosenStatus(event.target.value);
+        setFormData((prevData) => ({
+          ...prevData,
+          status: selectedTarget,
         }));
       };
 
@@ -143,11 +143,11 @@ export default function CreateProjectForm() {
                 <p>Set Status</p>
                 <span>
                 <label>Public
-                  <input type="radio" name="isPublic" value="true" checked={isPublicStatus === "true"} onChange={handleIsPublicStatus} />
+                  <input type="radio" name="isPublic" value="true" checked={isPublicStatus === "true"} onChange={handleIsPublic} />
                 </label>
 
                 <label>Private
-                  <input type="radio" name="isPublic" value="false" checked={isPublicStatus === "false"} onChange={handleIsPublicStatus} />
+                  <input type="radio" name="isPublic" value="false" checked={isPublicStatus === "false"} onChange={handleIsPublic} />
                 </label>
                 </span>
             </section>

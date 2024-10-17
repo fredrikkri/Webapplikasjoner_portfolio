@@ -3,22 +3,22 @@ export { users };
 const users = [
 {
     id: "1",
-    email: "fredrik@test.no",
-    name: "Fredrik",
+    role: "admin",
+    username: "Fredrik",
     },
   {
     id: "2",
-    email: "lars@test.no",
-    name: "Lars",
+    role: "user",
+    username: "Lars",
   },
   {
     id: "3",
-    email: "simen@test.no",
-    name: "Simen",
+    role: "user",
+    username: "Simen",
   },
   {
     id: "4",
-    email: "trude@test.no",
-    name: "True",
+    role: "user",
+    username: "True",
   },
 ];
