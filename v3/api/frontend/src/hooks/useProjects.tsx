@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { type Project } from "../features/types/Project";
-import { ENDPOINTS } from '../config';
+import { ENDPOINTS } from '../config/config';
 
 export function useProjects() {
   const [projectData, setProjectData] = useState<Project[]>([]);
