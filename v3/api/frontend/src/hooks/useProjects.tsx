@@ -6,7 +6,9 @@ export function useProjects() {
   const [projectData, setProjectData] = useState<Project[]>([]);
 
   const loadProjects = () => {
-    fetch(ENDPOINTS.projects)
+    fetch(ENDPOINTS.projects, {
+      credentials: "include"
+    })
       .then((response) => response.json())
       .then((data: Project[]) => {
         setProjectData(data);
