@@ -53,22 +53,12 @@ app.get("/projects/:id", async (c) => {
   return c.json(projects, {status: 200});
 });
 
-/* 
-const handleDelete = async (id: string) => {
-  const response = await fetch(https://serverurl/api/projects/${id}, {metod: 'DELETE'})
-  const result = await response.json()
-  setStudentList(result)
-}
-*/
 app.delete("/projects/:id", async (c) => {
   const id = c.req.param("id")
   const projects = projectsData.filter((thisProject) => thisProject.id !== id);
     return c.json(projects, {status: 200});
 });
 
-/* 
-fetch(https://serverurl/api/projects/${id}, {metod: 'PATCH', body: JSON.stringify(data)})
-*/
 app.patch("/projects/:id", async (c) => {
   const id = c.req.param("id");
   const {projectTitle} = await c.req.json();
