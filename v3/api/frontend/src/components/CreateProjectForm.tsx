@@ -5,6 +5,16 @@ export default function CreateProjectForm() {
   const useProjectsHook = useProjects().projectData;
 
   const [chosenStatus, setchosenStatus] = useState<string>("No status");
+  const [isPublicStatus, setIsPublicStatus] = useState<string>("true");
+
+  const handleIsPublicStatus = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedTargetIsPublic = event.target.value;
+    setIsPublicStatus(event.target.value);
+    setFormData((prevData) => ({
+      ...prevData,
+      status: selectedTargetIsPublic,
+    }));
+  };
 
   const handlechosenStatus = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedTarget = event.target.value;
@@ -22,7 +32,8 @@ export default function CreateProjectForm() {
       liveDemoLink: "",
       imgUrl: "",
       status: chosenStatus,
-      userId: ""
+      userId: "",
+      isPublic: isPublicStatus
     });
 
     // Handle sumbit metode
@@ -37,7 +48,8 @@ export default function CreateProjectForm() {
         liveDemoLink: formData.liveDemoLink,
         imgUrl: formData.imgUrl,
         createdAt: new Date(), 
-        status: formData.status
+        status: formData.status,
+        isPublic: formData.isPublic
       };
 
       try {
@@ -60,7 +72,8 @@ export default function CreateProjectForm() {
             liveDemoLink: "",
             imgUrl: "",
             status: "",
-            userId: ""
+            userId: "",
+            isPublic: ""
           });
           useProjectsHook
           
@@ -125,6 +138,19 @@ export default function CreateProjectForm() {
             
           
               </section>
+
+              <section id="public-section">
+                <p>Set Status</p>
+                <span>
+                <label>Public
+                  <input type="radio" name="isPublic" value="true" checked={isPublicStatus === "true"} onChange={handleIsPublicStatus} />
+                </label>
+
+                <label>Private
+                  <input type="radio" name="isPublic" value="false" checked={isPublicStatus === "false"} onChange={handleIsPublicStatus} />
+                </label>
+                </span>
+            </section>
 
               <input id="submit-button" type="submit"/>
         </form>

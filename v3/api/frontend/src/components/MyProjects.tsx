@@ -19,6 +19,7 @@ export default function MyProjects() {
             imgUrl={project.imgUrl}
             createdAt={project.createdAt}
             status={project.status}
+            isPublic={project.isPublic}
             />
         ))}
         </ul>
