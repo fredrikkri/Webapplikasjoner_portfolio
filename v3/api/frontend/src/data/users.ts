@@ -22,3 +22,8 @@ const users = [
     username: "True",
   },
 ];
+
+export const getUserRoleById = (id: any) => {
+  const user = users.find((user) => user.id === id);
+  return user ? user.role : null;
+};

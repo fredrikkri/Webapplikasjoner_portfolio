@@ -14,7 +14,6 @@ export default function CreateProjectForm() {
       liveDemoLink: "",
       imgUrl: "",
       status: chosenStatus,
-      userId: "",
       isPublic: isPublicStatus
     });
 
@@ -54,7 +53,6 @@ export default function CreateProjectForm() {
             liveDemoLink: '',
             imgUrl: '',
             status: '',
-            userId: '',
             isPublic: ''
           });
           useProjectsHook

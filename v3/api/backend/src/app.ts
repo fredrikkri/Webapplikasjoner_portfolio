@@ -2,9 +2,10 @@ import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { serveStatic } from "@hono/node-server/serve-static";
-import { Project, ProjectSchema } from "../../frontend/src/features/types/Project"
+import { Project, ProjectSchema } from "../../frontend/src/features/types/types"
 import { myProjects } from "../../frontend/src/data/myProjects"
 import { isNameValid } from "./lib/validator";
+import { getUser } from "../../frontend/src/features/utils/auth"
 
 const app = new Hono();
 
@@ -17,14 +18,33 @@ app.use("/*", serveStatic({ root: "./" }));
 const projectsData: Project[] = myProjects
 
 app.post("/add", async (c) => {
-  const newProject = await c.req.json();
-  const parseData = ProjectSchema.parse(newProject)
-  projectsData.push(parseData);
-  return c.json(projectsData, { status: 201 });
+  try {
+    const newProject = await c.req.json()
+    const parseData = ProjectSchema.parse(newProject)
+    projectsData.push(parseData);
+
+    return c.json(projectsData, { status: 201 });
+} catch (error) {
+    return c.json({ error: error }, { status: 400 });
+    }
 });
 
 app.get("/projects", async (c) => {
-  return c.json(<Project[]>projectsData, {status: 200});
+  const user = getUser(c.req.raw);
+
+  if (!user) {
+    return new Response("Ingen tilgang", {
+      status: 401,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    
+  }
+  const userProjects = projectsData.filter((project) => {
+    return project.userId === user.id || user.role === 'admin'
+  });
+  return c.json(<Project[]>userProjects, {status: 200});
 });
 
 app.get("/projects/:id", async (c) => {
