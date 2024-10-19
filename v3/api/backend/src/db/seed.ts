@@ -32,12 +32,12 @@ export const seed = async (db: DB) => {
             project.userId,
             project.projectTitle,
             project.description,
-            project.githubLink,
-            project.liveDemoLink,
-            project.imgUrl,
-            project.createdAt,
-            project.status,
-            project.isPublic
+            project.githubLink ?? null,
+            project.liveDemoLink ?? null,
+            project.imgUrl ?? null,
+            project.createdAt ? new Date(project.createdAt).toISOString() : new Date().toISOString(),
+            project.status ?? null,
+            project.isPublic ?? false
           );
         }
       })();
