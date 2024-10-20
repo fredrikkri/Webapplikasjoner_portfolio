@@ -20,5 +20,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/config/config.ts"]
+  "include": ["src", "src/config/config.ts", "../backend/src/db/myProjects.ts", "../backend/src/db/users.ts", "../backend/src/service", "../backend/src/dbOperations/projectService.ts"]
 }

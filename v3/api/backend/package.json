@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "scripts": {
-    "dev": "tsx watch src/app.ts",
+    "dev": "tsx watch src/server.ts",
     "db:setup": "tsx src/db/index.ts"
   },
   "dependencies": {

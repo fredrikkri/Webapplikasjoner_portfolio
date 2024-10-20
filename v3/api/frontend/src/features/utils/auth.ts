@@ -1,6 +1,6 @@
 import type { MiddlewareHandler } from "hono";
 import { HTTPException } from "hono/http-exception";
-import { users } from "../../data/users";
+import { users } from "../../../../backend/src/db/users";
 import type { User } from "../types/types";
 
 

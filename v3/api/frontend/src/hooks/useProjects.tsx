@@ -33,7 +33,6 @@ export function useProjects() {
           prevProjects.filter((project) => project.id !== id)
         );
         console.log(`Project with id: ${id} \n was deleted`);
-        // Her kan du oppdatere prosjektlisten lokalt om nødvendig
       } catch (error) {
         console.error("Error while deleting the project:", error);
       }

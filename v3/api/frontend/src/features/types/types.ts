@@ -19,6 +19,28 @@ export const User = z.object({
     username: z.string()
   });
 
+  export type DbProject = {
+    id: string;
+    userId: string;
+    projectTitle: string;
+    description: string;
+    githubLink: string;
+    liveDemoLink: string;
+    imgUrl: string;
+    createdAt: string;
+    status: string;
+    isPublic: string;
+  };
+  
+  export type DbUser = {
+    id: string;
+    role: string;
+    username: string;
+  };
+
+export type Entries<T> = {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][];
 
 export const ProjectCreateSchema = ProjectSchema.omit({ id: true });
 

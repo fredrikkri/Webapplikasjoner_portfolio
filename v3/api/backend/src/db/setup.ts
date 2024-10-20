@@ -1,4 +1,4 @@
-import db, { type DB } from "./db";
+import { DB } from "./db";
 import { seed } from "./seed";
 import { createTables } from "./tables";
 
