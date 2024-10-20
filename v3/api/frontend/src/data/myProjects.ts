@@ -3,7 +3,7 @@ export { myProjects };
 
 const myProjects = [
     {
-        "id": crypto.randomUUID(),
+        "id": "1",
         "userId": "1",
         "projectTitle": "test2",
         "description": "Webapp",
@@ -15,7 +15,7 @@ const myProjects = [
         "isPublic": "true"
       },
       {
-        "id": crypto.randomUUID(),
+        "id": "2",
         "userId": "2",
         "projectTitle": "Website created with Python and Flask",
         "description": "A simple website with sanity database",

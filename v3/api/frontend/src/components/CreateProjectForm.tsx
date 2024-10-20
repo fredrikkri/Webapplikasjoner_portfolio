@@ -1,5 +1,8 @@
 import { useState } from "react";
 import useProjects from "../hooks/useProjects"
+import { ENDPOINTS } from "../config/config";
+
+ENDPOINTS.add
 
 export default function CreateProjectForm() {
   const useProjectsHook = useProjects().projectData;
@@ -35,7 +38,7 @@ export default function CreateProjectForm() {
       };
 
       try {
-        const response = await fetch("http://localhost:3999/add", {
+        const response = await fetch(ENDPOINTS.add, {
           credentials: "include", 
           method: "POST",
           headers: {
@@ -48,13 +51,13 @@ export default function CreateProjectForm() {
           const data = await response.json();
           console.log("Project added:", data);
           setFormData({
-            projectTitle: '',
-            description: '',
-            githubLink: '',
-            liveDemoLink: '',
-            imgUrl: '',
-            status: '',
-            isPublic: ''
+            projectTitle: "",
+            description: "",
+            githubLink: "",
+            liveDemoLink: "",
+            imgUrl: "",
+            status: "",
+            isPublic: ""
           });
           useProjectsHook
           

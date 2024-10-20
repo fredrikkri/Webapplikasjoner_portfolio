@@ -15,7 +15,7 @@ app.use("/*", cors({
 }));
 app.use("/*", serveStatic({ root: "./" }));
 
-const projectsData: Project[] = myProjects
+let projectsData: Project[] = myProjects
 
 app.post("/add", async (c) => {
   try {
@@ -55,8 +55,8 @@ app.get("/projects/:id", async (c) => {
 
 app.delete("/projects/:id", async (c) => {
   const id = c.req.param("id")
-  const projects = projectsData.filter((thisProject) => thisProject.id !== id);
-    return c.json(projects, {status: 200});
+  projectsData = projectsData.filter((thisProject) => thisProject.id !== id);
+    return c.json(projectsData, {status: 200});
 });
 
 app.patch("/projects/:id", async (c) => {

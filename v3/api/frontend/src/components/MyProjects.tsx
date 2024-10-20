@@ -20,6 +20,7 @@ export default function MyProjects() {
             createdAt={project.createdAt}
             status={project.status}
             isPublic={project.isPublic}
+            userId={project.userId}
             />
         ))}
         </ul>
