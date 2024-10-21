@@ -100,15 +100,20 @@ export const createProjectRepository = (db: DB) => {
       const project = toDb(data);
 
       const query = db.prepare(`
-        INSERT INTO projects (id, name, created_at, updated_at)
+        INSERT INTO projects (id, userId, projectTitle, desctiption, githubLink, liveDemoLink, imgUrl, createdAt, projectStatus, isPublic)
         VALUES (?, ?, ?, ?)
       `);
-
       query.run(
         project.id,
-        project.name,
-        project.created_at,
-        project.updated_at
+        project.userId,
+        project.projectTitle,
+        project.description,
+        project.githubLink,
+        project.liveDemoLink,
+        project.imgUrl,
+        project.createdAt,
+        project.projectStatus,
+        project.isPublic
       );
       return {
         success: true,
@@ -139,11 +144,10 @@ export const createProjectRepository = (db: DB) => {
 
       const query = db.prepare(`
         UPDATE projects
-        SET name = ?, updated_at = ?
+        SET id = ?, projectTitle = ?, description = ?, githubLink = ?, githubLink = ?, liveDemoLink = ?, imgUrl = ?, createdAt = ?, projectStatus = ?, isPublic = ?, userId = ?
         WHERE id = ?
       `);
-
-      query.run(project.name, project.updated_at, project.id);
+      query.run(project.id, project.projectTitle, project.description, project.githubLink, project.liveDemoLink, project.imgUrl, project.createdAt, project.projectStatus, project.isPublic, project.userId);
       return {
         success: true,
         data: fromDb(project),

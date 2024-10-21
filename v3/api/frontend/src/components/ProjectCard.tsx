@@ -3,7 +3,7 @@ import { format } from "date-fns"
 import useProjects from "../hooks/useProjects";
 
 
-export default function ProjectCard({id, projectTitle, description, githubLink, liveDemoLink, imgUrl, createdAt, status, isPublic, userId}: Project) {
+export default function ProjectCard({id, projectTitle, description, githubLink, liveDemoLink, imgUrl, createdAt, projectStatus, isPublic, userId}: Project) {
     const useProjectsHook = useProjects();
     return (
         <li className="card">
@@ -15,7 +15,7 @@ export default function ProjectCard({id, projectTitle, description, githubLink, 
                 <br />
                 <a href={liveDemoLink}>Live Demo</a>
                 <p>{description}</p>
-                <p>Project status: {status}</p>
+                <p>Project status: {projectStatus}</p>
                 <p>Public: {isPublic}</p>
                 <button onClick={() => useProjectsHook.deleteProject(id)}>Delete Project</button>
             </article>

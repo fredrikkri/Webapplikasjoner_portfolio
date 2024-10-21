@@ -16,7 +16,7 @@ export default function CreateProjectForm() {
       description: "",
       liveDemoLink: "",
       imgUrl: "",
-      status: chosenStatus,
+      projectStatus: chosenStatus,
       isPublic: isPublicStatus
     });
 
@@ -33,7 +33,7 @@ export default function CreateProjectForm() {
         liveDemoLink: formData.liveDemoLink,
         imgUrl: formData.imgUrl,
         createdAt: new Date(), 
-        status: formData.status,
+        projectStatus: formData.projectStatus,
         isPublic: formData.isPublic
       };
 
@@ -56,7 +56,7 @@ export default function CreateProjectForm() {
             githubLink: "",
             liveDemoLink: "",
             imgUrl: "",
-            status: "",
+            projectStatus: "",
             isPublic: ""
           });
           useProjectsHook

@@ -17,7 +17,7 @@ export const createTables = async (db: DB) => {
     liveDemoLink TEXTL,
     imgUrl TEXT,
     createdAt TEXT,
-    status TEXT,
+    projectStatus TEXT,
     isPublic TEXT,
     FOREIGN KEY (userId) REFERENCES users(id)
   );

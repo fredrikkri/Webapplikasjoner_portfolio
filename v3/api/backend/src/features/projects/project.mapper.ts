@@ -5,32 +5,59 @@ const createId = () => {
 };
 
 export const createProjectResponse = (project: Project): ProjectResponse => {
-  const { name } = project;
-  const [firstName, ...rest] = name.split(" ");
+  const { id, 
+    projectTitle, 
+    description, 
+    githubLink, 
+    liveDemoLink, 
+    imgUrl, 
+    createdAt,
+    projectStatus, 
+    isPublic, 
+    userId, } = project;
 
   return {
     ...project,
-    firstName,
-    lastName: rest?.at(-1) ?? "",
-    avatar: name[0],
+    id, 
+    projectTitle, 
+    description, 
+    githubLink, 
+    liveDemoLink, 
+    imgUrl, 
+    createdAt,
+    projectStatus, 
+    isPublic, 
+    userId,
   };
 };
 
 export const fromDb = (project: ProjectFromDb) => {
   return {
-    id: project.id,
-    name: project.name,
-    createdAt: new Date(project.created_at).toISOString(),
-    updatedAt: new Date(project.updated_at).toISOString(),
+    id: project.id, 
+    projectTitle: project.projectTitle, 
+    description: project.description, 
+    githubLink: project.githubLink, 
+    liveDemoLink: project.liveDemoLink, 
+    imgUrl: project.imgUrl, 
+    createdAt: project.createdAt,
+    projectStatus: project.projectStatus, 
+    isPublic: project.isPublic, 
+    userId: project.userId,
   };
 };
 
 export const createProject = (project: Partial<Project>): Project => {
   return {
-    id: project.id ?? createId(),
-    name: project.name ?? "",
-    createdAt: project?.createdAt ?? new Date().toISOString(),
-    updatedAt: project?.updatedAt ?? new Date().toISOString(),
+    id: project.id ?? createId(),  
+    projectTitle: project?.projectTitle ?? "", 
+    description: project?.description ?? "", 
+    githubLink: project?.githubLink ?? "", 
+    liveDemoLink: project?.liveDemoLink ?? "", 
+    imgUrl: project?.imgUrl ?? "", 
+    createdAt: project?.createdAt ?? "",
+    projectStatus: project?.projectStatus ?? "", 
+    isPublic: project?.isPublic ?? "", 
+    userId: project?.userId ?? "",
   };
 };
 
@@ -38,9 +65,15 @@ export const toDb = (data: Partial<Project>) => {
   const project = createProject(data);
 
   return {
-    id: project.id,
-    name: project.name,
-    created_at: project.createdAt,
-    updated_at: project.updatedAt,
+    id: project.id, 
+    projectTitle: project.projectTitle, 
+    description: project.description, 
+    githubLink: project.githubLink, 
+    liveDemoLink: project.liveDemoLink, 
+    imgUrl: project.imgUrl, 
+    createdAt: project.createdAt,
+    projectStatus: project.projectStatus, 
+    isPublic: project.isPublic, 
+    userId: project.userId,
   };
 };

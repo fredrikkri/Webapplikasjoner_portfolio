@@ -9,7 +9,7 @@
         "liveDemoLink": "link",
         "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/330px-Unofficial_JavaScript_logo_2.svg.png",
         "createdAt": "12/09/2024",
-        "status": "New",
+        "projectStatus": "New",
         "isPublic": "true"
       },
       {
@@ -21,7 +21,7 @@
         "liveDemoLink": "link",
         "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg",
         "createdAt": "14/02/203", 
-        "status": "In Progress",
+        "projectStatus": "In Progress",
         "isPublic": "false"
       }
     ]

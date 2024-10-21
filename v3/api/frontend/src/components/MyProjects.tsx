@@ -18,7 +18,7 @@ export default function MyProjects() {
             liveDemoLink={project.liveDemoLink}
             imgUrl={project.imgUrl}
             createdAt={project.createdAt}
-            status={project.status}
+            projectStatus={project.projectStatus}
             isPublic={project.isPublic}
             userId={project.userId}
             />

@@ -9,7 +9,7 @@ export const ProjectSchema = z.object({
     liveDemoLink: z.string(),
     imgUrl: z.string(),
     createdAt: z.coerce.date(),
-    status: z.string(),
+    projectStatus: z.string(),
     isPublic: z.string()
 })
 
@@ -28,7 +28,7 @@ export const User = z.object({
     liveDemoLink: string;
     imgUrl: string;
     createdAt: string;
-    status: string;
+    projectStatus: string;
     isPublic: string;
   };
   

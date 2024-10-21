@@ -48,7 +48,7 @@ export const seed = async (db: DB) => {
         project.liveDemoLink ?? null,
         project.imgUrl ?? null,
         project.createdAt ? new Date(project.createdAt).toString() : new Date().toString(),
-        project.status ?? null,
+        project.projectStatus ?? null,
         project.isPublic ?? false
       );
     }

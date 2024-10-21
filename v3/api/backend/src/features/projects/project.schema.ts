@@ -2,33 +2,50 @@ import { z } from "zod";
 
 export const projectsSchema = z.object({
   id: z.string(),
-  name: z.string().min(3),
+  userId: z.string(),
+  projectTitle: z.string(),
+  description: z.string(),
+  githubLink: z.string(),
+  liveDemoLink: z.string(),
+  imgUrl: z.string(),
   createdAt: z.string(),
-  updatedAt: z.string(),
+  projectStatus: z.string(),
+  isPublic: z.string(),
 });
 
 export const projectFromDbSchema = z.object({
   id: z.string(),
-  name: z.string(),
-  created_at: z.string(),
-  updated_at: z.string(),
+  userId: z.string(),
+  projectTitle: z.string(),
+  description: z.string(),
+  githubLink: z.string(),
+  liveDemoLink: z.string(),
+  imgUrl: z.string(),
+  createdAt: z.string(),
+  projectStatus: z.string(),
+  isPublic: z.string(),
 });
 
 export const projectResponseSchema = projectsSchema.extend({
-  firstName: z.string(),
-  lastName: z.string(),
-  avatar: z.string(),
+  id: z.string(),
+  userId: z.string(),
+  projectTitle: z.string(),
+  description: z.string(),
+  githubLink: z.string(),
+  liveDemoLink: z.string(),
+  imgUrl: z.string(),
+  createdAt: z.string(),
+  projectStatus: z.string(),
+  isPublic: z.string(),
 });
 
 export const updateProjectSchema = projectsSchema.omit({
   createdAt: true,
-  updatedAt: true,
 });
 
 export const createProjectSchema = projectsSchema.omit({
   id: true,
   createdAt: true,
-  updatedAt: true,
 });
 
 export type Project = z.infer<typeof projectsSchema>;
