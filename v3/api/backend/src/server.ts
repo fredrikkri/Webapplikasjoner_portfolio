@@ -1,6 +1,8 @@
 import { serve } from "@hono/node-server";
-import { Hono } from "hono";
+import { Hono, type Context } from "hono";
 import { cors } from "hono/cors";
+import { bearerAuth } from "hono/bearer-auth";
+import { projectController } from "./features/projects/project.controller";
 import { serveStatic } from "@hono/node-server/serve-static";
 import { Project, ProjectSchema } from "../../frontend/src/features/types/types"
 // import { isNameValid } from "./lib/validator";
