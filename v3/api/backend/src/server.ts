@@ -41,18 +41,6 @@ let projectsData: Project[] =  [
     }
 ];
 
-app.post("/add", async (c) => {
-  try {
-    const newProject = await c.req.json()
-    const parseData = ProjectSchema.parse(newProject)
-    projectsData.push(parseData);
-
-    return c.json(projectsData, { status: 201 });
-} catch (error) {
-    return c.json({ error: error }, { status: 400 });
-    }
-});
-
 app.get("/projects", async (c) => {
   const user = getUser(c.req.raw);
 
@@ -75,6 +63,18 @@ app.get("/projects/:id", async (c) => {
   const id = c.req.param("id")
   const projects = projectsData.filter((thisProject) => thisProject.id === id)
   return c.json(projects, {status: 200});
+});
+
+app.post("/add", async (c) => {
+  try {
+    const newProject = await c.req.json()
+    const parseData = ProjectSchema.parse(newProject)
+    projectsData.push(parseData);
+
+    return c.json(projectsData, { status: 201 });
+} catch (error) {
+    return c.json({ error: error }, { status: 400 });
+    }
 });
 
 app.delete("/projects/:id", async (c) => {

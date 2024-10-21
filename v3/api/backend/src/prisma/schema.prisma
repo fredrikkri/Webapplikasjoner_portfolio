@@ -8,13 +8,13 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  role String  @unique
-  username  String
+  id            String     @id
+  role          String      @unique
+  username      String
 }
 
 model Project {
-  id             Int      @id @default(autoincrement())
+  id             String      @id
   projectTitle   String
   description    String
   githubLink     String?
