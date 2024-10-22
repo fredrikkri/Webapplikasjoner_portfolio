@@ -1,10 +1,40 @@
 import { Project } from "../features/types/types";
 import { format } from "date-fns"
 import useProjects from "../hooks/useProjects";
+import { useState } from "react";
 
 
 export default function ProjectCard({id, projectTitle, description, githubLink, liveDemoLink, imgUrl, createdAt, projectStatus, isPublic, userId}: Project) {
     const useProjectsHook = useProjects();
+    const [isUpdateFormVisible, setIsUpdateFormVisible] = useState(false);
+    const [updatedProjectData, setUpdatedProjectData] = useState({
+      projectTitle,
+      description,
+      githubLink,
+      liveDemoLink,
+      imgUrl,
+      projectStatus,
+      isPublic,
+    });
+
+    const toggleUpdateForm = () => {
+        setIsUpdateFormVisible((prev) => !prev);
+      };
+    
+      const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setUpdatedProjectData((prevData) => ({
+          ...prevData,
+          [name]: value,
+        }));
+      };
+    
+      const handleUpdateSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        useProjectsHook.updateProjects(id, updatedProjectData);
+        toggleUpdateForm();
+      };
+
     return (
         <li className="card">
             <article>
@@ -18,7 +48,77 @@ export default function ProjectCard({id, projectTitle, description, githubLink, 
                 <p>Project status: {projectStatus}</p>
                 <p>Public: {isPublic}</p>
                 <button onClick={() => useProjectsHook.deleteProject(id)}>Delete Project</button>
+                <button onClick={toggleUpdateForm}>Update Project</button>
             </article>
+      {isUpdateFormVisible && (
+        <form onSubmit={handleUpdateSubmit}>
+          <label>
+            Project Title:
+            <input
+              type="text"
+              name="projectTitle"
+              value={updatedProjectData.projectTitle}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Description:
+            <input
+              type="text"
+              name="description"
+              value={updatedProjectData.description}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Github Link:
+            <input
+              type="text"
+              name="githubLink"
+              value={updatedProjectData.githubLink}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Live Demo Link:
+            <input
+              type="text"
+              name="liveDemoLink"
+              value={updatedProjectData.liveDemoLink}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Image URL:
+            <input
+              type="text"
+              name="imgUrl"
+              value={updatedProjectData.imgUrl}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Project Status:
+            <input
+              type="text"
+              name="projectStatus"
+              value={updatedProjectData.projectStatus}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Is Public:
+            <input
+              type="text"
+              name="isPublic"
+              value={updatedProjectData.isPublic}
+              onChange={handleInputChange}
+            />
+          </label>
+          <button type="submit">Save Changes</button>
+        </form>
+      )}
+
             <figure>
                 <img src={imgUrl} alt="ImageURL" />
             </figure>
