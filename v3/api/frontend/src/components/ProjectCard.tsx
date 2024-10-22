@@ -70,51 +70,6 @@ export default function ProjectCard({id, projectTitle, description, githubLink, 
               onChange={handleInputChange}
             />
           </label>
-          <label>
-            Github Link:
-            <input
-              type="text"
-              name="githubLink"
-              value={updatedProjectData.githubLink}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Live Demo Link:
-            <input
-              type="text"
-              name="liveDemoLink"
-              value={updatedProjectData.liveDemoLink}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Image URL:
-            <input
-              type="text"
-              name="imgUrl"
-              value={updatedProjectData.imgUrl}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Project Status:
-            <input
-              type="text"
-              name="projectStatus"
-              value={updatedProjectData.projectStatus}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Is Public:
-            <input
-              type="text"
-              name="isPublic"
-              value={updatedProjectData.isPublic}
-              onChange={handleInputChange}
-            />
-          </label>
           <button type="submit">Save Changes</button>
         </form>
       )}
