@@ -8,7 +8,7 @@
         "githubLink": "Link to github repo",
         "liveDemoLink": "link",
         "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/330px-Unofficial_JavaScript_logo_2.svg.png",
-        "createdAt": "12/09/2024",
+        "createdAt": "2024-10-22T12:00:00Z",
         "projectStatus": "New",
         "isPublic": "true"
       },
@@ -20,7 +20,7 @@
         "githubLink": "Link to github repo",
         "liveDemoLink": "link",
         "imgUrl": "https://blog.appseed.us/content/images/size/w600/2024/01/cover-flask.jpg",
-        "createdAt": "14/02/203", 
+        "createdAt": "2023-05-15T08:30:00Z", 
         "projectStatus": "In Progress",
         "isPublic": "false"
       }

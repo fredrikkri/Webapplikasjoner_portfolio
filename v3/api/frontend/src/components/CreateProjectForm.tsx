@@ -32,7 +32,7 @@ export default function CreateProjectForm() {
         githubLink: formData.githubLink,
         liveDemoLink: formData.liveDemoLink,
         imgUrl: formData.imgUrl,
-        createdAt: new Date().toString(), 
+        createdAt: new Date(), 
         projectStatus: formData.projectStatus,
         isPublic: formData.isPublic
       };

@@ -18,49 +18,49 @@ export function useProjects() {
       });
   };
 
-  const deleteProject = async (id: String) => {    
+  const deleteProject = async (id: string) => { // Use primitive string type
     try {
-        const response = await fetch(`${ENDPOINTS.projects}/${id}`, {
-          method: 'DELETE',
-        });
-    
-        if (!response.ok) {
-          console.error("Error deleting the project:", response.statusText);
-          console.log(`${BASE_URL}/${id}`)
-          return;
-        }
-        setProjectData((prevProjects) => 
-          prevProjects.filter((project) => project.id !== id)
-        
-        );
-        console.log(`Project with id: ${id} \n was deleted`);
-      } catch (error) {
-        console.error("Error while deleting the project:", error);
-      }
-    };
-
-    const updateProjects = async (id: string, updatedData: any)  => {
-      const response = await fetch(`${ENDPOINTS.update}/${id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedData),
+      const response = await fetch(`${ENDPOINTS.projects}/${id}`, {
+        method: 'DELETE',
       });
-  
-      if (response.ok) {
-        console.log('Project updated successfully');
-        loadProjects(); 
-      } else {
-        console.error('Failed to update project');
+
+      if (!response.ok) {
+        console.error("Error deleting the project:", response.statusText);
+        console.log(`${BASE_URL}/${id}`);
+        return;
       }
+
+      console.log(`Project with id: ${id} was deleted`);
+
+      // Fetch the latest project data after successful deletion
+      loadProjects();
+    } catch (error) {
+      console.error("Error while deleting the project:", error);
     }
+  };
+
+  const updateProjects = async (id: string, updatedData: any)  => {
+    const response = await fetch(`${ENDPOINTS.update}/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedData),
+    });
+
+    if (response.ok) {
+      console.log('Project updated successfully');
+      loadProjects(); 
+    } else {
+      console.error('Failed to update project');
+    }
+  };
 
   useEffect(() => {
     loadProjects();
-  }, [loadProjects]);
+  }, []);
 
-  return { projectData, loadProjects, deleteProject };
+  return { projectData, loadProjects, deleteProject, updateProjects };
 }
 
 export default useProjects;

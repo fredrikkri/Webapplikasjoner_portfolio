@@ -3,19 +3,16 @@ import useProjects from "../hooks/useProjects";
 
 export default function MyProjects() {
     const { projectData } = useProjects();
-
-    
-
-    if (!Array.isArray(projectData)) {
+    if (!Array.isArray(projectData.data)) {
         return <></>;
-    }
-
+    }   
+    else
     return (
         <section id="my-projects">
             <hr />
         <h2>My projects</h2>
         <ul id="list-cards">
-        {projectData.map((project, index) => (
+        {projectData.data.map((project, index) => (
             <ProjectCard key={index} 
             id={project.id}
             projectTitle={project.projectTitle} 

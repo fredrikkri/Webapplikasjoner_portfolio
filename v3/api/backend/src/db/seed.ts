@@ -9,10 +9,15 @@ const __dirname = dirname(__filename);
 
 export const seed = async (db: DB) => {
     const path = join(__dirname, "projects.json");
+    const path2 = join(__dirname, "users.json");
 
-    const file = await fs.readFile(path, "utf-8");
-    const { users, projects } = JSON.parse(file) as {
+    const file1 = await fs.readFile(path, "utf-8");
+    const file2 = await fs.readFile(path2, "utf-8");
+
+    const { users } = JSON.parse(file2) as {
       users: User[];
+    };
+    const { projects } = JSON.parse(file1) as {
       projects: Project[];
     };
 
@@ -29,7 +34,7 @@ export const seed = async (db: DB) => {
       `);
 
     const insertProject = db.prepare(`
-        INSERT INTO projects (id, userId, projectTitle, description, githubLink, liveDemoLink, imgUrl, createdAt, status, isPublic)
+        INSERT INTO projects (id, userId, projectTitle, description, githubLink, liveDemoLink, imgUrl, createdAt, projectStatus, isPublic)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
        `);
 
