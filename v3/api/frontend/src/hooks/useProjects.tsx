@@ -31,6 +31,7 @@ export function useProjects() {
         }
         setProjectData((prevProjects) => 
           prevProjects.filter((project) => project.id !== id)
+        
         );
         console.log(`Project with id: ${id} \n was deleted`);
       } catch (error) {
@@ -38,9 +39,26 @@ export function useProjects() {
       }
     };
 
+    const updateProjects = async (id: string, updatedData: any)  => {
+      const response = await fetch(`${ENDPOINTS.update}/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData),
+      });
+  
+      if (response.ok) {
+        console.log('Project updated successfully');
+        loadProjects(); 
+      } else {
+        console.error('Failed to update project');
+      }
+    }
+
   useEffect(() => {
     loadProjects();
-  }, [projectData]);
+  }, [loadProjects]);
 
   return { projectData, loadProjects, deleteProject };
 }

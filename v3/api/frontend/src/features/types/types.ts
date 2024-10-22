@@ -8,7 +8,7 @@ export const ProjectSchema = z.object({
     githubLink: z.string(),
     liveDemoLink: z.string(),
     imgUrl: z.string(),
-    createdAt: z.coerce.date(),
+    createdAt: z.string(),
     projectStatus: z.string(),
     isPublic: z.string()
 })

@@ -24,7 +24,7 @@ export const fromDb = (project: DbProject) => {
       githubLink: project.githubLink ?? "",
       liveDemoLink: project.liveDemoLink ?? "",
       imgUrl: project.imgUrl ?? "",
-      createdAt: project.createdAt ?? new Date(),
+      createdAt: project.createdAt ?? "",
       projectStatus: project.projectStatus ?? "",
       isPublic: project.isPublic ?? ""
     };
@@ -67,7 +67,7 @@ export const fromDb = (project: DbProject) => {
           break;
         case "createdAt":
           // Håndterer nullable felter
-          dbProject.createdAt = value.toISOString() ?? null;
+          dbProject.createdAt = value.toString() ?? null;
           break;
         case "projectStatus":
           dbProject.projectStatus = value;

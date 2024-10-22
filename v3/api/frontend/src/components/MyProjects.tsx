@@ -4,6 +4,12 @@ import useProjects from "../hooks/useProjects";
 export default function MyProjects() {
     const { projectData } = useProjects();
 
+    
+
+    if (!Array.isArray(projectData)) {
+        return <></>;
+    }
+
     return (
         <section id="my-projects">
             <hr />

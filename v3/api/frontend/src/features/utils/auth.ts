@@ -21,7 +21,6 @@ export const authenticate = (): MiddlewareHandler => {
 
 export function getUser(request: Request): User | null {
     const cookies = parseCookie(request.headers.get("Cookie") ?? "");
-    // Henter ut user.id cookie verdi
     const id = cookies["user.id"];
     return users.find((user) => user.id === id) ?? null;
   }

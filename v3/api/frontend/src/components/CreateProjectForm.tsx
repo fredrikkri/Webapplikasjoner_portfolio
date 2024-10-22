@@ -32,10 +32,11 @@ export default function CreateProjectForm() {
         githubLink: formData.githubLink,
         liveDemoLink: formData.liveDemoLink,
         imgUrl: formData.imgUrl,
-        createdAt: new Date(), 
+        createdAt: new Date().toString(), 
         projectStatus: formData.projectStatus,
         isPublic: formData.isPublic
       };
+      console.log("Sending project data:", newProject); 
 
       try {
         const response = await fetch(ENDPOINTS.add, {
@@ -69,7 +70,6 @@ export default function CreateProjectForm() {
       }
     };
 
-    // Handle change metode
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = event.target;
         setFormData((prevFormData) => ({

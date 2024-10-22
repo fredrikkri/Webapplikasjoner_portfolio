@@ -1,6 +1,7 @@
-export const BASE_URL = "http://localhost:3999";
+export const BASE_URL = "http://localhost:3999/api/v1";
 
 export const ENDPOINTS = {
   add: `${BASE_URL}/add`,
+  update: `${BASE_URL}/update`,
   projects: `${BASE_URL}/projects`,
 };

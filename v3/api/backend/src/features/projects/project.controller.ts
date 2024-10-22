@@ -6,7 +6,7 @@ import { validateQuery } from "../../lib/query";
 export const createProjectController = (projectService: ProjectService) => {
   const app = new Hono();
 
-  app.get("/", async (c) => {
+  app.get("/projects", async (c) => {
     const query = validateQuery(c.req.query()).data ?? {};
 
     const result = await projectService.list(query);
@@ -20,7 +20,7 @@ export const createProjectController = (projectService: ProjectService) => {
     return c.json(result);
   });
 
-  app.get("/:id", async (c) => {
+  app.get("/project/:id", async (c) => {
     const id = c.req.param("id");
     const result = await projectService.getById(id);
 
@@ -33,7 +33,7 @@ export const createProjectController = (projectService: ProjectService) => {
     return c.json(result);
   });
 
-  app.post("/", async (c) => {
+  app.post("/add", async (c) => {
     const data = await c.req.json();
     const result = await projectService.create(data);
     if (!result.success)
@@ -59,7 +59,7 @@ export const createProjectController = (projectService: ProjectService) => {
     return c.json(result);
   });
 
-  app.delete("/:id", async (c) => {
+  app.delete("/project/:id", async (c) => {
     const id = c.req.param("id");
     const result = await projectService.remove(id);
     if (!result.success)

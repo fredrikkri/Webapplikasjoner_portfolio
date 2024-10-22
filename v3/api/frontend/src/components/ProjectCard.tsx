@@ -9,7 +9,7 @@ export default function ProjectCard({id, projectTitle, description, githubLink, 
         <li className="card">
             <article>
                 <h3>{projectTitle}</h3>
-                <p>{format(createdAt, "dd/MM/yyyy")}</p>
+                <p>{format(new Date(createdAt), "dd/MM/yyyy")}</p>
                 <p>userID: {userId}</p>
                 <a href={githubLink}>Link to Github</a>
                 <br />

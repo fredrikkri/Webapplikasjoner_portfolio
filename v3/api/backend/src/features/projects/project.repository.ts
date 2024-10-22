@@ -101,7 +101,7 @@ export const createProjectRepository = (db: DB) => {
 
       const query = db.prepare(`
         INSERT INTO projects (id, userId, projectTitle, desctiption, githubLink, liveDemoLink, imgUrl, createdAt, projectStatus, isPublic)
-        VALUES (?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `);
       query.run(
         project.id,
