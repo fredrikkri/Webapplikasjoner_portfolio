@@ -1,55 +1,69 @@
 import { Project } from "../features/types/types";
-import { format } from "date-fns"
+import { format } from "date-fns";
 import useProjects from "../hooks/useProjects";
 import { useState } from "react";
 
+export default function ProjectCard({
+  id,
+  projectTitle,
+  description,
+  githubLink,
+  liveDemoLink,
+  imgUrl,
+  createdAt,
+  projectStatus,
+  isPublic,
+  userId,
+  deleteProject, // Receive delete function as prop
+}: Project & { deleteProject: (id: string) => void }) {
+  const useProjectsHook = useProjects();
+  const [isUpdateFormVisible, setIsUpdateFormVisible] = useState(false);
+  const [updatedProjectData, setUpdatedProjectData] = useState({
+    projectTitle,
+    description,
+    githubLink,
+    liveDemoLink,
+    imgUrl,
+    projectStatus,
+    isPublic,
+  });
 
-export default function ProjectCard({id, projectTitle, description, githubLink, liveDemoLink, imgUrl, createdAt, projectStatus, isPublic, userId}: Project) {
-    const useProjectsHook = useProjects();
-    const [isUpdateFormVisible, setIsUpdateFormVisible] = useState(false);
-    const [updatedProjectData, setUpdatedProjectData] = useState({
-      projectTitle,
-      description,
-      githubLink,
-      liveDemoLink,
-      imgUrl,
-      projectStatus,
-      isPublic,
-    });
+  const handleDelete = () => {
+    deleteProject(id);
+  };
+  const toggleUpdateForm = () => {
+    setIsUpdateFormVisible((prev) => !prev);
+  };
 
-    const toggleUpdateForm = () => {
-        setIsUpdateFormVisible((prev) => !prev);
-      };
-    
-      const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setUpdatedProjectData((prevData) => ({
-          ...prevData,
-          [name]: value,
-        }));
-      };
-    
-      const handleUpdateSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        useProjectsHook.updateProjects(id, updatedProjectData);
-        toggleUpdateForm();
-      };
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUpdatedProjectData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-    return (
-        <li className="card">
-            <article>
-                <h3>{projectTitle}</h3>
-                <p>{format(new Date(createdAt), "dd/MM/yyyy")}</p>
-                <p>userID: {userId}</p>
-                <a href={githubLink}>Link to Github</a>
-                <br />
-                <a href={liveDemoLink}>Live Demo</a>
-                <p>{description}</p>
-                <p>Project status: {projectStatus}</p>
-                <p>Public: {isPublic}</p>
-                <button onClick={() => useProjectsHook.deleteProject(id)}>Delete Project</button>
-                <button onClick={toggleUpdateForm}>Update Project</button>
-            </article>
+  const handleUpdateSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    useProjectsHook.updateProjects(id, updatedProjectData);
+    toggleUpdateForm();
+  };
+
+  return (
+    <li className="card">
+      <article>
+        <h3>{projectTitle}</h3>
+        <p>{format(new Date(createdAt), "dd/MM/yyyy")}</p>
+        <p>userID: {userId}</p>
+        <a href={githubLink}>Link to Github</a>
+        <br />
+        <a href={liveDemoLink}>Live Demo</a>
+        <p>{description}</p>
+        <p>Project status: {projectStatus}</p>
+        <p>Public: {isPublic}</p>
+        <button onClick={handleDelete}>Delete Project</button>
+        <button onClick={toggleUpdateForm}>Update Project</button>
+      </article>
       {isUpdateFormVisible && (
         <form onSubmit={handleUpdateSubmit}>
           <label>
@@ -74,9 +88,9 @@ export default function ProjectCard({id, projectTitle, description, githubLink, 
         </form>
       )}
 
-            <figure>
-                <img src={imgUrl} alt="ImageURL" />
-            </figure>
-        </li>
-    );
-  }
+      <figure>
+        <img src={imgUrl} alt="ImageURL" />
+      </figure>
+    </li>
+  );
+}
