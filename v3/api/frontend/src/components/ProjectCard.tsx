@@ -14,7 +14,7 @@ export default function ProjectCard({
   projectStatus,
   isPublic,
   userId,
-  deleteProject, // Receive delete function as prop
+  deleteProject
 }: Project & { deleteProject: (id: string) => void }) {
   const useProjectsHook = useProjects();
   const [isUpdateFormVisible, setIsUpdateFormVisible] = useState(false);
