@@ -33,7 +33,7 @@ export default function CreateProjectForm() {
         liveDemoLink: formData.liveDemoLink,
         imgUrl: formData.imgUrl,
         createdAt: new Date(), 
-        projectStatus: formData.projectStatus,
+        projectStatus: chosenStatus,
         isPublic: formData.isPublic
       };
       console.log("Sending project data:", newProject); 
@@ -125,15 +125,15 @@ export default function CreateProjectForm() {
                 <p>Set Status</p>
                 <span>
                 <label>New
-                  <input type="radio" name="status" value="New" checked={chosenStatus === "New"} onChange={handlechosenStatus} />
+                  <input type="radio" name="chosenStatus" value="New" checked={chosenStatus === "New"} onChange={handlechosenStatus} />
                 </label>
 
                 <label>In Progress
-                  <input type="radio" name="status" value="In Progress" checked={chosenStatus === "In Progress"} onChange={handlechosenStatus} />
+                  <input type="radio" name="chosenStatus" value="In Progress" checked={chosenStatus === "In Progress"} onChange={handlechosenStatus} />
                 </label>
 
                 <label>Finished
-                  <input type="radio" name="status" value="Finished" checked={chosenStatus === "Finished"} onChange={handlechosenStatus} />
+                  <input type="radio" name="chosenStatus" value="Finished" checked={chosenStatus === "Finished"} onChange={handlechosenStatus} />
                 </label>
                 </span>
             </section>
