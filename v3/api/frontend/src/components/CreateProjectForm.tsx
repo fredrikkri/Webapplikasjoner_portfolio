@@ -61,7 +61,7 @@ export default function CreateProjectForm() {
             isPublic: ""
           });
           useProjectsHook
-          
+          window.history.go()
         } else {
           console.error("err:", response.statusText);
         }
