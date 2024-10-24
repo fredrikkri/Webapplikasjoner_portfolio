@@ -3,11 +3,11 @@
     {
         "id": "1",
         "userId": "1",
-        "projectTitle": "test2",
-        "description": "Webapp",
+        "projectTitle": "Shrek: Open World game",
+        "description": "Next gen open wolrd game. Explore the world with the ultimate character Shrek",
         "githubLink": "Link to github repo",
         "liveDemoLink": "link",
-        "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/330px-Unofficial_JavaScript_logo_2.svg.png",
+        "imgUrl": "https://cdn.80.lv/api/upload/content/2a/images/65d2b1fe231a7/widen_920x0.jpg",
         "createdAt": "2024-10-22T12:00:00Z",
         "projectStatus": "New",
         "isPublic": "true"
