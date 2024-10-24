@@ -89,7 +89,7 @@ main{
               0 1px 5px rgba(0, 0, 0, 0.10);
             margin: 8px;
             padding: 8px;    
-            height: 350px;
+            height: 400px;
             width: 500px;
             display: flex;
             transition: background-color 0.3s ease, transform 0.4s ease;
@@ -104,7 +104,8 @@ main{
             
             figure{
                 img{
-                    width: 125px;
+                    width: 225px;
+                    height: 150px;
                 }
             }
             }
