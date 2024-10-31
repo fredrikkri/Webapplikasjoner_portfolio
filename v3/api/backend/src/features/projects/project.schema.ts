@@ -1,3 +1,5 @@
+// project.schema.ts
+
 import { z } from "zod";
 
 export const projectsSchema = z.object({

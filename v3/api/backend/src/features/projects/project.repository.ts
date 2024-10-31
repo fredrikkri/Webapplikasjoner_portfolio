@@ -1,3 +1,5 @@
+// project.repository.ts
+
 import { db, type DB } from "../../db/db";
 import type {
   CreateProject,
@@ -10,6 +12,7 @@ import { fromDb, toDb } from "./project.mapper";
 import type { Query } from "../../lib/query";
 
 export const createProjectRepository = (db: DB) => {
+
   const exist = async (id: string): Promise<boolean> => {
     const query = db.prepare(
       "SELECT COUNT(*) as count FROM projects WHERE id = ?"

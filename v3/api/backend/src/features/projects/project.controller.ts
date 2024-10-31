@@ -1,3 +1,5 @@
+// project.controller.ts
+
 import { Hono } from "hono";
 import { projectService, type ProjectService } from "./project.service";
 import { errorResponse, type ErrorCode } from "../../lib/error";
