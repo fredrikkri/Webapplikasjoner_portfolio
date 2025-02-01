@@ -1,4 +1,4 @@
-// import Footer from "./Footer";
+import Footer from "./Footer";
 import Header from "./Header";
 
 type LayoutProps = {
@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <Header/>
       <main>{children}</main>
-      {/* <Footer/> */}
+      <Footer/>
     </>
   );
 }
