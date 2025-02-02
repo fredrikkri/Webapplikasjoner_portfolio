@@ -2,7 +2,7 @@ export default function Header() {
     return (
         <header>
             <nav>
-                Portfolio
+            Portefølje
             </nav>
         </header>
     );

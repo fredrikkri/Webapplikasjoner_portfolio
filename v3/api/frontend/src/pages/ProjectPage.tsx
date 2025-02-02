@@ -5,7 +5,8 @@ import MyProjects from "../components/MyProjects";
 function ProjectPage() {
   return (
     <>
-      <Title title={"Portfolio"} />
+      {/* <Title title={"Portfolio"} /> */}
+      <br />
       <CreateProjectSection/>
       <MyProjects/>
     </>

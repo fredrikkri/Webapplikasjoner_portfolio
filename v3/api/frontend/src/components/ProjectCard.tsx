@@ -54,20 +54,18 @@ export default function ProjectCard({
       <article>
         <h3>{projectTitle}</h3>
         <p>{format(new Date(createdAt), "dd/MM/yyyy")}</p>
-        <p>userID: {userId}</p>
-        <a href={githubLink}>Link to Github</a>
+        <a href={githubLink}>Link til Github</a>
         <br />
         <a href={liveDemoLink}>Live Demo</a>
         <p>{description}</p>
-        <p>Project status: {projectStatus}</p>
-        <p>Public: {isPublic}</p>
-        <button onClick={handleDelete}>Delete Project</button>
-        <button onClick={toggleUpdateForm}>Update Project</button>
+        <p>Prosjekt status: {projectStatus}</p>
+        <button onClick={handleDelete}>Slett prosjekt</button>
+        <button onClick={toggleUpdateForm}>Oppdater prosjekt</button>
       </article>
       {isUpdateFormVisible && (
         <form onSubmit={handleUpdateSubmit}>
           <label>
-            Project Title:
+            Prosjekt tittel:
             <input
               type="text"
               name="projectTitle"
@@ -76,7 +74,7 @@ export default function ProjectCard({
             />
           </label>
           <label>
-            Description:
+            Beskrivelse:
             <input
               type="text"
               name="description"
@@ -84,7 +82,7 @@ export default function ProjectCard({
               onChange={handleInputChange}
             />
           </label>
-          <button type="submit">Save Changes</button>
+          <button type="submit">Lagre Endringer</button>
         </form>
       )}
 
