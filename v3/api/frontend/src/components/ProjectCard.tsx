@@ -2,7 +2,7 @@ import { Project } from "../features/types/types";
 import { format } from "date-fns";
 import useProjects from "../hooks/useProjects";
 import { useState } from "react";
-import { FaGithub, FaExternalLinkAlt, FaTrash, FaEdit } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaTrash, FaEdit, FaCalendarAlt, FaInfoCircle } from "react-icons/fa";
 
 export default function ProjectCard({
   id,
@@ -56,7 +56,17 @@ export default function ProjectCard({
         </figure>
         <div className="card-content">
           <h3 className="card-title">{projectTitle}</h3>
-          <p className="card-date">{format(new Date(createdAt), "dd/MM/yyyy")}</p>
+  
+          {/* Ny container for dato og prosjektstatus */}
+          <div className="card-meta">
+            <p className="card-date">
+              <FaCalendarAlt /> {format(new Date(createdAt), "dd/MM/yyyy")}
+            </p>
+            <p className="card-status">
+              <FaInfoCircle /> {projectStatus}
+            </p>
+          </div>
+  
           <p className="card-description">{description}</p>
           <div className="card-links">
             <a href={githubLink} className="card-link">
@@ -66,7 +76,6 @@ export default function ProjectCard({
               <FaExternalLinkAlt /> Live Demo
             </a>
           </div>
-          <p className="card-status">Prosjekt status: {projectStatus}</p>
           <div className="card-actions">
             <button onClick={handleDelete} className="card-button delete-button">
               <FaTrash /> Slett prosjekt
@@ -77,6 +86,7 @@ export default function ProjectCard({
           </div>
         </div>
       </article>
+  
       {isUpdateFormVisible && (
         <form onSubmit={handleUpdateSubmit} className="update-form">
           <label>
@@ -102,4 +112,5 @@ export default function ProjectCard({
       )}
     </li>
   );
+  
 }
