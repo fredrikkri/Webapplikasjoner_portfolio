@@ -8,7 +8,6 @@ export default function CreateProjectForm() {
   const useProjectsHook = useProjects().projectData;
 
   const [chosenStatus, setchosenStatus] = useState<string>("No status");
-  const [isPublicStatus, setIsPublicStatus] = useState<string>("true");
 
     const [formData, setFormData] = useState({
       projectTitle: "",
@@ -17,7 +16,6 @@ export default function CreateProjectForm() {
       liveDemoLink: "",
       imgUrl: "",
       projectStatus: chosenStatus,
-      isPublic: isPublicStatus
     });
 
     // Handle sumbit metode
@@ -34,7 +32,6 @@ export default function CreateProjectForm() {
         imgUrl: formData.imgUrl,
         createdAt: new Date(), 
         projectStatus: chosenStatus,
-        isPublic: formData.isPublic
       };
       console.log("Sending project data:", newProject); 
 
@@ -57,8 +54,7 @@ export default function CreateProjectForm() {
             githubLink: "",
             liveDemoLink: "",
             imgUrl: "",
-            projectStatus: "",
-            isPublic: ""
+            projectStatus: ""
           });
           useProjectsHook
           window.history.go()
@@ -75,15 +71,6 @@ export default function CreateProjectForm() {
         setFormData((prevFormData) => ({
           ...prevFormData,
           [id]: value,
-        }));
-      };
-
-      const handleIsPublic = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const selectedTargetIsPublic = event.target.value;
-        setIsPublicStatus(event.target.value);
-        setFormData((prevData) => ({
-          ...prevData,
-          isPublic: selectedTargetIsPublic,
         }));
       };
     
@@ -119,42 +106,24 @@ export default function CreateProjectForm() {
             <section id="create-project-right">
                 <label htmlFor="description">Description</label>
                 <input type="text" id="description" name="label" placeholder="Tell us about your project..." onChange={handleChange} required/>
+                <section id="chose-status-section">
+                    <p>Set Status</p>
+                    <span>
+                    <label>New
+                      <input type="radio" name="chosenStatus" value="New" checked={chosenStatus === "New"} onChange={handlechosenStatus} />
+                    </label>
 
+                    <label>In Progress
+                      <input type="radio" name="chosenStatus" value="In Progress" checked={chosenStatus === "In Progress"} onChange={handlechosenStatus} />
+                    </label>
 
-            <section id="chose-status-section">
-                <p>Set Status</p>
-                <span>
-                <label>New
-                  <input type="radio" name="chosenStatus" value="New" checked={chosenStatus === "New"} onChange={handlechosenStatus} />
-                </label>
-
-                <label>In Progress
-                  <input type="radio" name="chosenStatus" value="In Progress" checked={chosenStatus === "In Progress"} onChange={handlechosenStatus} />
-                </label>
-
-                <label>Finished
-                  <input type="radio" name="chosenStatus" value="Finished" checked={chosenStatus === "Finished"} onChange={handlechosenStatus} />
-                </label>
-                </span>
+                    <label>Finished
+                      <input type="radio" name="chosenStatus" value="Finished" checked={chosenStatus === "Finished"} onChange={handlechosenStatus} />
+                    </label>
+                    </span>
+                </section>  
             </section>
-            
-          
-              </section>
-
-              <section id="public-section">
-                <p>Set Status</p>
-                <span>
-                <label>Public
-                  <input type="radio" name="isPublic" value="true" checked={isPublicStatus === "true"} onChange={handleIsPublic} />
-                </label>
-
-                <label>Private
-                  <input type="radio" name="isPublic" value="false" checked={isPublicStatus === "false"} onChange={handleIsPublic} />
-                </label>
-                </span>
-            </section>
-
-              <input id="submit-button" type="submit"/>
+            <input id="submit-button" type="submit"/>
         </form>
     );
 }

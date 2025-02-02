@@ -10,7 +10,6 @@ export const ProjectSchema = z.object({
     imgUrl: z.string(),
     createdAt: z.string(),
     projectStatus: z.string(),
-    isPublic: z.string()
 })
 
 export const User = z.object({
@@ -29,7 +28,6 @@ export const User = z.object({
     imgUrl: string;
     createdAt: string;
     projectStatus: string;
-    isPublic: string;
   };
   
   export type DbUser = {

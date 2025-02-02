@@ -13,7 +13,6 @@ export default function ProjectCard({
   imgUrl,
   createdAt,
   projectStatus,
-  isPublic,
   userId,
   deleteProject
 }: Project & { deleteProject: (id: string) => void }) {
@@ -26,7 +25,6 @@ export default function ProjectCard({
     liveDemoLink,
     imgUrl,
     projectStatus,
-    isPublic,
   });
 
   const handleDelete = () => {

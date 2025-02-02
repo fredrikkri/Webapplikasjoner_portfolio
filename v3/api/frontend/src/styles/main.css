@@ -150,7 +150,7 @@ main {
                 cursor: pointer;
                 transition: background-color 0.3s ease, transform 0.2s ease;
                 width: 100%;
-                max-width: 200px;
+                /* max-width: 200px; */
                 margin: 20px auto 0;
                 display: block;
 

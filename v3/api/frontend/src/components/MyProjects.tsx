@@ -23,7 +23,6 @@ export default function MyProjects() {
             imgUrl={project.imgUrl}
             createdAt={project.createdAt}
             projectStatus={project.projectStatus}
-            isPublic={project.isPublic}
             userId={project.userId}
             deleteProject={deleteProject}
           />

@@ -1,4 +1,3 @@
-import Title from "../components/Title";
 import CreateProjectSection from "../components/CreateProjectSection";
 import MyProjects from "../components/MyProjects";
 
