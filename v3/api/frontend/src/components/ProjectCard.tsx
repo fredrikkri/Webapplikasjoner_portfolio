@@ -2,6 +2,7 @@ import { Project } from "../features/types/types";
 import { format } from "date-fns";
 import useProjects from "../hooks/useProjects";
 import { useState } from "react";
+import { FaGithub, FaExternalLinkAlt, FaTrash, FaEdit } from "react-icons/fa";
 
 export default function ProjectCard({
   id,
@@ -52,18 +53,34 @@ export default function ProjectCard({
   return (
     <li className="card">
       <article>
-        <h3>{projectTitle}</h3>
-        <p>{format(new Date(createdAt), "dd/MM/yyyy")}</p>
-        <a href={githubLink}>Link til Github</a>
-        <br />
-        <a href={liveDemoLink}>Live Demo</a>
-        <p>{description}</p>
-        <p>Prosjekt status: {projectStatus}</p>
-        <button onClick={handleDelete}>Slett prosjekt</button>
-        <button onClick={toggleUpdateForm}>Oppdater prosjekt</button>
+        <figure>
+          <img src={imgUrl} alt={projectTitle} className="card-image" />
+        </figure>
+        <div className="card-content">
+          <h3 className="card-title">{projectTitle}</h3>
+          <p className="card-date">{format(new Date(createdAt), "dd/MM/yyyy")}</p>
+          <p className="card-description">{description}</p>
+          <div className="card-links">
+            <a href={githubLink} className="card-link">
+              <FaGithub /> GitHub
+            </a>
+            <a href={liveDemoLink} className="card-link">
+              <FaExternalLinkAlt /> Live Demo
+            </a>
+          </div>
+          <p className="card-status">Prosjekt status: {projectStatus}</p>
+          <div className="card-actions">
+            <button onClick={handleDelete} className="card-button delete-button">
+              <FaTrash /> Slett prosjekt
+            </button>
+            <button onClick={toggleUpdateForm} className="card-button update-button">
+              <FaEdit /> Oppdater prosjekt
+            </button>
+          </div>
+        </div>
       </article>
       {isUpdateFormVisible && (
-        <form onSubmit={handleUpdateSubmit}>
+        <form onSubmit={handleUpdateSubmit} className="update-form">
           <label>
             Prosjekt tittel:
             <input
@@ -82,13 +99,9 @@ export default function ProjectCard({
               onChange={handleInputChange}
             />
           </label>
-          <button type="submit">Lagre Endringer</button>
+          <button type="submit" className="save-button">Lagre Endringer</button>
         </form>
       )}
-
-      <figure>
-        <img src={imgUrl} alt="ImageURL" />
-      </figure>
     </li>
   );
 }
