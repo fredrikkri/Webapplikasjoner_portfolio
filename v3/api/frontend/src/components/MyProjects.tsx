@@ -10,7 +10,7 @@ export default function MyProjects() {
 
   return (
     <section id="my-projects">
-      <h2>My projects</h2>
+      <h2>Mine prosjekter</h2>
       <ul id="list-cards">
         {projectData.map((project) => (
           <ProjectCard

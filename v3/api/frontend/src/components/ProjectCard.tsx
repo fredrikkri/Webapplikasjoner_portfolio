@@ -1,7 +1,7 @@
 import { Project } from "../features/types/types";
 import { format } from "date-fns";
 import useProjects from "../hooks/useProjects";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaGithub, FaExternalLinkAlt, FaTrash, FaEdit, FaCalendarAlt, FaInfoCircle } from "react-icons/fa";
 
 export default function ProjectCard({
@@ -27,9 +27,19 @@ export default function ProjectCard({
     projectStatus,
   });
 
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const storedUserId = localStorage.getItem("userid");
+    if (storedUserId === "1") {
+      setIsAdmin(true);
+    }
+  }, []);
+
   const handleDelete = () => {
     deleteProject(id);
   };
+
   const toggleUpdateForm = () => {
     setIsUpdateFormVisible((prev) => !prev);
   };
@@ -76,18 +86,23 @@ export default function ProjectCard({
               <FaExternalLinkAlt /> Live Demo
             </a>
           </div>
-          <div className="card-actions">
-            <button onClick={handleDelete} className="card-button delete-button">
-              <FaTrash /> Slett prosjekt
-            </button>
-            <button onClick={toggleUpdateForm} className="card-button update-button">
-              <FaEdit /> Oppdater prosjekt
-            </button>
-          </div>
+
+          {/* Kun admin ser slett/oppdater-knappene */}
+          {isAdmin && (
+            <div className="card-actions">
+              <button onClick={handleDelete} className="card-button delete-button">
+                <FaTrash /> Slett prosjekt
+              </button>
+              <button onClick={toggleUpdateForm} className="card-button update-button">
+                <FaEdit /> Oppdater prosjekt
+              </button>
+            </div>
+          )}
         </div>
       </article>
   
-      {isUpdateFormVisible && (
+      {/* Oppdateringsskjema (vises kun hvis admin) */}
+      {isUpdateFormVisible && isAdmin && (
         <form onSubmit={handleUpdateSubmit} className="update-form">
           <label>
             Prosjekt tittel:
@@ -112,5 +127,4 @@ export default function ProjectCard({
       )}
     </li>
   );
-  
 }
